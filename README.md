@@ -36,7 +36,7 @@ Python 3.13.1
 ModuleNotFoundError: No module named 'numpy'
 
 pip install numpy --user
-
+---------------------------------------
 # Running Python on Windows PowerShell
 
 This guide will help you navigate using Python in **Windows PowerShell**, including setting up your environment, troubleshooting errors, and installing required packages.
@@ -64,7 +64,7 @@ Ensure the folder exists before navigating to it.
 
 ---
 
-## 🐍 **Running Python in PowerShell**
+## **Running Python in PowerShell**
 ### **1⃣ Check if Python is Installed**
 Run the following command to verify Python installation:
 
@@ -160,6 +160,30 @@ HOME_DIRECTORY = os.environ.get('USERPROFILE', 'C:\\Users\\YourUsername')
 3. **Verify Package Installation**
    ```powershell
    pip list
+   ```
+## ✅ **Changing/Updating IP addresses**
+# Updating Localhost with PowerShell
+
+## 📌 **Getting Your IP Address**
+To retrieve your **local** IP address, run:
+```powershell
+Get-NetIPAddress -AddressFamily IPv4 | Select-Object IPAddress
+```
+
+For **public** IP:
+```powershell
+Invoke-RestMethod -Uri "https://api64.ipify.org?format=text"
+```
+
+## ⚡ **Updating Localhost Configuration**
+1. Open PowerShell as **Administrator**.
+2. Run:
+   ```powershell
+   notepad C:\Windows\System32\drivers\etc\hosts
+   ```
+3. Add your IP:
+   ```
+   192.168.1.100  localhost
    ```
 
 ---
