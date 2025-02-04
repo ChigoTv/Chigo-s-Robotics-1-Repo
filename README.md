@@ -3,11 +3,11 @@
 
 Hello to whoever may be reading this file!  
 
-My name is Chigo, and this is my **Robotics 1 (IE 482)** repository. 🚀  
+My name is Chigo, and this is my **Robotics 1 (IE 482)** repository.   
 
 Stay tuned for project updates, code, and insights related to robotics!  
 
-Feel free to explore and contribute. 🤖  
+Feel free to explore and contribute.   
 
 # Running Python on Windows PowerShell
 
@@ -15,7 +15,7 @@ This guide will help you navigate using Python in **Windows PowerShell**, includ
 
 ---
 
-## 🚀 **Basic PowerShell Navigation**
+##  **Basic PowerShell Navigation**
 PowerShell operates with a directory structure similar to a command-line interface (CLI). Here are some essential commands:
 
 ```powershell
@@ -43,7 +43,7 @@ This guide will help you navigate using Python in **Windows PowerShell**, includ
 
 ---
 
-## 🚀 **Basic PowerShell Navigation**
+##  **Basic PowerShell Navigation**
 PowerShell operates with a directory structure similar to a command-line interface (CLI). Here are some essential commands:
 
 ```powershell
@@ -98,7 +98,7 @@ exit()
 
 ---
 
-## 🛠 **Common Errors & Fixes**
+##  **Common Errors & Fixes**
 ### **1 ModuleNotFoundError: No module named 'numpy'**
 If you get an error like this:
 ```python
