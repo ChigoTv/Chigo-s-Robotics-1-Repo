@@ -65,7 +65,7 @@ Ensure the folder exists before navigating to it.
 ---
 
 ## **Running Python in PowerShell**
-### **1⃣ Check if Python is Installed**
+### **1 Check if Python is Installed**
 Run the following command to verify Python installation:
 
 ```powershell
@@ -79,7 +79,7 @@ Python 3.13.1
 
 If you see an error like `python3: The system cannot find the path specified`, try using `python` instead of `python3`.
 
-### **2⃣ Running Python**
+### **2 Running Python**
 To start the Python interpreter, use:
 
 ```powershell
@@ -99,7 +99,7 @@ exit()
 ---
 
 ## 🛠 **Common Errors & Fixes**
-### **1⃣ ModuleNotFoundError: No module named 'numpy'**
+### **1 ModuleNotFoundError: No module named 'numpy'**
 If you get an error like this:
 ```python
 ModuleNotFoundError: No module named 'numpy'
@@ -109,7 +109,7 @@ You need to install the missing package:
 pip install numpy --user
 ```
 
-### **2⃣ AttributeError: module 'cv2' has no attribute 'TrackerCSRT_create'**
+### **2 AttributeError: module 'cv2' has no attribute 'TrackerCSRT_create'**
 This error suggests that OpenCV may be outdated or incorrectly installed. Reinstall it with:
 
 ```powershell
@@ -117,7 +117,7 @@ pip uninstall opencv-python
 pip install opencv-contrib-python --user
 ```
 
-### **3⃣ Access Denied When Installing a Package**
+### **3 Access Denied When Installing a Package**
 If you see:
 ```
 ERROR: Could not install packages due to an OSError: [WinError 5] Access is denied
@@ -128,7 +128,7 @@ Try installing with the `--user` flag:
 pip install package-name --user
 ```
 
-### **4⃣ KeyError: 'HOME'**
+### **4 KeyError: 'HOME'**
 If you see:
 ```python
 KeyError: 'HOME'
@@ -142,7 +142,7 @@ HOME_DIRECTORY = os.environ.get('USERPROFILE', 'C:\\Users\\YourUsername')
 
 ---
 
-## ✅ **Best Practices**
+##  **Best Practices**
 1. **Use Virtual Environments**  
    Avoid system-wide package conflicts by creating a virtual environment:
 
@@ -161,10 +161,10 @@ HOME_DIRECTORY = os.environ.get('USERPROFILE', 'C:\\Users\\YourUsername')
    ```powershell
    pip list
    ```
-## ✅ **Changing/Updating IP addresses**
+##  **Changing/Updating IP addresses**
 # Updating Localhost with PowerShell
 
-## 📌 **Getting Your IP Address**
+##  **Getting Your IP Address**
 To retrieve your **local** IP address, run:
 ```powershell
 Get-NetIPAddress -AddressFamily IPv4 | Select-Object IPAddress
@@ -175,7 +175,7 @@ For **public** IP:
 Invoke-RestMethod -Uri "https://api64.ipify.org?format=text"
 ```
 
-## ⚡ **Updating Localhost Configuration**
+##  **Updating Localhost Configuration**
 1. Open PowerShell as **Administrator**.
 2. Run:
    ```powershell
@@ -188,12 +188,12 @@ Invoke-RestMethod -Uri "https://api64.ipify.org?format=text"
 
 ---
 
-## 🔗 **Helpful Links**
+##  **Helpful Links**
 - [Download the Latest PowerShell](https://aka.ms/PSWindows)
 - [Python Downloads](https://www.python.org/downloads/)
 - [Pip User Guide](https://pip.pypa.io/en/stable/)
 
 ---
 
-Now you're ready to run Python smoothly on **Windows PowerShell**! 🚀🐍
+Now you're ready to run Python smoothly on **Windows PowerShell**! 
 
