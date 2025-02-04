@@ -3,7 +3,7 @@
 
 Hello to whoever may be reading this file!  
 
-My name is Chigo, and this is my **Robotics 1 (IE 482)** repository.   
+My name is Chigozie Eke, and this is my **Robotics 1 (IE 482)** repository.   
 
 Stay tuned for project updates, code, and insights related to robotics!  
 
@@ -11,12 +11,12 @@ Feel free to explore and contribute.
 
 # Running Python on Windows PowerShell
 
-This guide will help you navigate using Python in **Windows PowerShell**, including setting up your environment, troubleshooting errors, and installing required packages.
+This guide will help you navigate using Python in **Windows PowerShell**, including setting up your environment, troubleshooting possible errors, and installing required packages when necessary.
 
 ---
 
 ##  **Basic PowerShell Navigation**
-PowerShell operates with a directory structure similar to a command-line interface (CLI). Here are some essential commands:
+PowerShell operates with a directory structure similar to a command-line interface (CLI), which is a text-based way to interact with a computer's operating system. CLIs are used to run programs, manage files, and perform other tasks. Here are some essential commands that I found helpful while working through this (With the massive amount of help with Angelo):
 
 ```powershell
 # Change directory (navigate to a folder)
