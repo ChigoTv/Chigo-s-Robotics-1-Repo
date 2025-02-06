@@ -23,11 +23,11 @@ cd Downloads
 # List files in the current directory
 ls
 
-**# If you try to change into a directory that does not exist, you will see an error:
-**
+# If you try to change into a directory that does not exist, you will see an error:
+```
 cd code
-# cd : Cannot find path 'C:\Users\Chigo\Downloads\code' because it does not exist.
-
+cd : Cannot find path 'C:\Users\Chigo\Downloads\code' because it does not exist.
+```
 python --version
 Python 3.13.1
 
