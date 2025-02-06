@@ -18,8 +18,9 @@ PowerShell operates with a directory structure similar to a command-line interfa
 
 ```powershell
 # Change directory (navigate to a folder, in this case "Downloads")
+```
 cd Downloads
-
+```
 # List files in the current directory
 ls
 
