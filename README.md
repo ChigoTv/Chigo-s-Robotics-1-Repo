@@ -74,7 +74,7 @@ exit()
 ---
 
 ##  **Common Errors & Fixes**
-### **1 ModuleNotFoundError: No module named 'numpy'**
+### **1. ModuleNotFoundError: No module named 'numpy'**
 If you get an error like this:
 ```python
 ModuleNotFoundError: No module named 'numpy'
@@ -84,7 +84,7 @@ You need to install the missing package:
 pip install numpy --user
 ```
 
-### **2 AttributeError: module 'cv2' has no attribute 'TrackerCSRT_create'**
+### **2. AttributeError: module 'cv2' has no attribute 'TrackerCSRT_create'**
 This error suggests that OpenCV may be outdated or incorrectly installed. Reinstall it with:
 
 ```powershell
@@ -92,7 +92,7 @@ pip uninstall opencv-python
 pip install opencv-contrib-python --user
 ```
 
-### **3 Access Denied When Installing a Package**
+### **3. Access Denied When Installing a Package**
 If you see:
 ```
 ERROR: Could not install packages due to an OSError: [WinError 5] Access is denied
@@ -103,7 +103,7 @@ Try installing with the `--user` flag:
 pip install package-name --user
 ```
 
-### **4 KeyError: 'HOME'**
+### **4. KeyError: 'HOME'**
 If you see:
 ```python
 KeyError: 'HOME'
