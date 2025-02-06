@@ -5,21 +5,19 @@ Hello to whoever may be reading this file!
 
 My name is Chigozie Eke, and this is my **Robotics 1 (IE 482)** repository.   
 
-Stay tuned for project updates, code, and insights related to robotics!  
-
-Feel free to explore and contribute.   
+Stay tuned for project updates, code, and learning material related to robotics!  
 
 # Running Python on Windows PowerShell
 
-This guide will help you navigate using Python in **Windows PowerShell**, including setting up your environment, troubleshooting possible errors, and installing required packages when necessary.
+This guide will help you (and me) navigate using Python in **Windows PowerShell**, including setting up your environment, troubleshooting possible errors, and installing required packages when necessary.
 
 ---
 
 ##  **Basic PowerShell Navigation**
-PowerShell operates with a directory structure similar to a command-line interface (CLI), which is a text-based way to interact with a computer's operating system. CLIs are used to run programs, manage files, and perform other tasks. Here are some essential commands that I found helpful while working through this (With the massive amount of help with Angelo):
+PowerShell operates with a directory structure similar to a command-line interface (CLI), which is a text-based way to interact with a computer's operating system. CLIs are used to run programs, manage files, and perform other tasks. Here are some essential commands that I found helpful while working through this (With the massive amount of help from Angelo and Professor Murray):
 
 ```powershell
-# Change directory (navigate to a folder)
+# Change directory (navigate to a folder, in this case "Downloads")
 cd Downloads
 
 # List files in the current directory
@@ -43,33 +41,16 @@ This guide will help you navigate using Python in **Windows PowerShell**, includ
 
 ---
 
-##  **Basic PowerShell Navigation**
-PowerShell operates with a directory structure similar to a command-line interface (CLI). Here are some essential commands:
-
-```powershell
-# Change directory (navigate to a folder)
-cd Downloads
-
-# List files in the current directory
-ls
-```
-
-If you try to change into a directory that **does not exist**, you will see an error:
-
-```powershell
-cd code
-# cd : Cannot find path 'C:\Users\Chigo\Downloads\code' because it does not exist.
-```
-Ensure the folder exists before navigating to it.
-
----
-
 ## **Running Python in PowerShell**
 ### **1 Check if Python is Installed**
 Run the following command to verify Python installation:
 
 ```powershell
 python --version
+```
+If Python is not installed, use this command:
+```
+pip install Python 3.13.1
 ```
 
 If Python is installed, you will see an output like:
@@ -140,30 +121,6 @@ import os
 HOME_DIRECTORY = os.environ.get('USERPROFILE', 'C:\\Users\\YourUsername')
 ```
 
----
-
-##  **Best Practices**
-1. **Use Virtual Environments**  
-   Avoid system-wide package conflicts by creating a virtual environment:
-
-   ```powershell
-   python -m venv my_env
-   .\my_env\Scripts\activate
-   ```
-
-2. **Keep Python and Pip Updated**
-   ```powershell
-   python -m ensurepip --default-pip
-   python -m pip install --upgrade pip
-   ```
-
-3. **Verify Package Installation**
-   ```powershell
-   pip list
-   ```
-##  **Changing/Updating IP addresses**
-# Updating Localhost with PowerShell
-
 ##  **Getting Your IP Address**
 To retrieve your **local** IP address, run:
 ```powershell
@@ -185,14 +142,6 @@ Invoke-RestMethod -Uri "https://api64.ipify.org?format=text"
    ```
    192.168.1.100  localhost
    ```
-
----
-
-##  **Helpful Links**
-- [Download the Latest PowerShell](https://aka.ms/PSWindows)
-- [Python Downloads](https://www.python.org/downloads/)
-- [Pip User Guide](https://pip.pypa.io/en/stable/)
-
 ---
 
 Now you're ready to run Python smoothly on **Windows PowerShell**! 
