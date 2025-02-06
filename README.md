@@ -138,5 +138,5 @@ Invoke-RestMethod -Uri "https://api64.ipify.org?format=text"
    ```
 ---
 
-Now you're ready to run Python smoothly on **Windows PowerShell**! 
+To be **continued**...
 
