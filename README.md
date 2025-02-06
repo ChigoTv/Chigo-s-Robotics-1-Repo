@@ -16,8 +16,6 @@ This guide will help you (and me) navigate using Python in **Windows PowerShell*
 ##  **Basic PowerShell Navigation**
 PowerShell operates with a directory structure similar to a command-line interface (CLI), which is a text-based way to interact with a computer's operating system. CLIs are used to run programs, manage files, and perform other tasks. Here are some essential commands that I found helpful while working through this (With the massive amount of help from Angelo and Professor Murray):
 
-```powershell
-```
 # Change directory (navigate to a folder, in this case "Downloads")
 ```
 cd Downloads
