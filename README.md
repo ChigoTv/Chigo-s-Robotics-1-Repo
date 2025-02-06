@@ -36,7 +36,7 @@ This guide will help you navigate using Python in **Windows PowerShell**, includ
 ---
 
 ## **Running Python in PowerShell**
-### **1 Check if Python is Installed**
+### **1. Check if Python is Installed**
 Run the following command to verify Python installation:
 
 ```powershell
@@ -54,7 +54,7 @@ Python 3.13.1
 
 If you see an error like `python3: The system cannot find the path specified`, try using `python` instead of `python3`.
 
-### **2 Running Python**
+### **2. Running Python**
 To start the Python interpreter, use:
 
 ```powershell
