@@ -28,13 +28,7 @@ ls
 cd code
 cd : Cannot find path 'C:\Users\Chigo\Downloads\code' because it does not exist.
 ```
-python --version
-Python 3.13.1
 
-ModuleNotFoundError: No module named 'numpy'
-
-pip install numpy --user
----------------------------------------
 # Running Python on Windows PowerShell
 
 This guide will help you navigate using Python in **Windows PowerShell**, including setting up your environment, troubleshooting errors, and installing required packages.
