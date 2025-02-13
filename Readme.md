@@ -8,6 +8,7 @@ This project utilizes OpenCV's Haar Cascade Classifier to detect faces in real-t
 - Multiple face tracking with automatic labeling (Person 1, Person 2, etc.).
 - Pixel data extraction from detected faces.
 - Ability to exit the application by pressing 'Q'.
+## Features
 
 ## Requirements
 - Python 3.x
