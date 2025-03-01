@@ -51,11 +51,8 @@ The gestures should trigger corresponding robotic commands (e.g., **"move left" 
 A **demonstration (real-time video or simulation)** should show the system in action.  
 
 ### Quantitative Metrics:
-- **Gesture Classification Accuracy:** 
-  - Achieve at least **90% accuracy** in controlled environments.
-  - Maintain at least **85% accuracy** in varying lighting conditions and backgrounds.
 - **Latency:** 
-  - System should process gestures within **200ms** to allow real-time control.
+  - System should process gestures within **200ms** to allow real-time control. (This is more so controlled on our end)
 - **Robotic Response Rate:** 
   - At least **95% of detected gestures** should trigger the intended robotic command successfully.
 - **Gesture Set Coverage:** 
