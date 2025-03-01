@@ -46,7 +46,7 @@ We propose to develop a gesture recognition system that detects and classifies h
 | Provide system documentation (README.md) |  | **May 13** | Pending |
 
 ## Measures of Success
-The system should be able to **accurately detect and classify hand gestures** with at least **90% accuracy** in varied lighting conditions.  
+The system should be able to **accurately detect and classify hand gestures** with at least **75% accuracy** in varied lighting conditions. This something we will be self assessing.
 The gestures should trigger corresponding robotic commands (e.g., **"move left" when swiping left**).  
 A **demonstration (real-time video or simulation)** should show the system in action.  
 
@@ -54,7 +54,7 @@ A **demonstration (real-time video or simulation)** should show the system in ac
 - **Latency:** 
   - System should process gestures within **200ms** to allow real-time control. (This is more so controlled on our end)
 - **Robotic Response Rate:** 
-  - At least **95% of detected gestures** should trigger the intended robotic command successfully.
+  - At least **75% of detected gestures** should trigger the intended robotic command successfully.
 - **Gesture Set Coverage:** 
   - System must support and correctly classify **at least 5 different gestures** consistently.
 - **User Testing Feedback:** 
