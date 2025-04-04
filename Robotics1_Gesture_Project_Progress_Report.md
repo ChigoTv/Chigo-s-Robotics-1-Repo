@@ -32,10 +32,6 @@ Initially, the project was intended to interface with an **Arduino-controlled ro
 - Webots and Gazebo Simulation Tutorials  
 - Research articles on Gesture-Based HRI
 
-### 📘 Textbooks
-- *Robotics: Modelling, Planning and Control* – Siciliano & Khatib  
-- *Computer Vision: Algorithms and Applications* – Richard Szeliski
-
 ### 🛠️ Development Stack
 - Python, OpenCV, Mediapipe  
 - Jupyter Notebook, PyCharm  
