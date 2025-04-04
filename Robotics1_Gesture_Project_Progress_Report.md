@@ -49,8 +49,8 @@ Initially, the project was intended to interface with an **Arduino-controlled ro
 | Explore hardware options (Pivoted to simulation)              | Both                 | March 7      | ❌ Cancelled (Pivoted) |
 | Study/Explore OpenCV and Webots                               | Chigozie             | March 7      | ✅ Completed      |
 | Implement real-time hand tracking                             | Om                   | March 12     | 🟡 In Progress    |
-| Develop a gesture classification model                        | Om                   | March 19     | ⏳ Not Started    |
-| Map gestures to robotic commands in simulation                | Chigozie             | March 26     | ⏳ Not Started    |
+| Develop a gesture classification model                        | Om                   | March 19     | 🟡 In Progress    |
+| Map gestures to robotic commands in simulation                | Chigozie             | March 26     | 🟡 In Progress    |
 | Create progress report                                         | Both                 | April 3      | ✅ **This File**  |
 | Test and refine gesture recognition accuracy                  | Both                 | April 10     | ⏳ Not Started    |
 | Prepare demo with robotic control application (simulated)     | Both                 | April 24     | ⏳ Not Started    |
