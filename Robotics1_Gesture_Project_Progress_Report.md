@@ -23,7 +23,167 @@ Initially, the project was intended to interface with an **Arduino-controlled ro
 - Both members have continued to review **relevant literature** on gesture-based HRI (Human-Robot Interaction) and robotic simulation tools.
 
 ---
+Awesome — you're already halfway there! Since your Webots simulation works with keyboard inputs like `W`, `A`, `S`, `D`, we can **replace the keyboard listener** with a **gesture recognition system** using **MediaPipe + OpenCV** from your local webcam.
 
+Here’s a **step-by-step plan** to implement that:
+
+---
+
+## 🧠 Goal
+Use **real-time gesture recognition** (via webcam and MediaPipe) to **replace keyboard controls** and command the robot in **Webots** using Python.
+
+---
+
+## ✅ Overall Architecture
+
+```
+[OpenCV + MediaPipe]
+↓
+Detect Hand Gestures
+↓
+Map Gesture → Direction Command
+↓
+Webots Controller → Move Robot
+```
+
+---
+
+## 🔧 Setup Checklist
+
+### 1. **Install Required Libraries**
+```bash
+pip install opencv-python mediapipe
+```
+
+---
+
+### 2. **Design Gesture → Command Mapping**
+
+| Hand Gesture            | Command         | Webots Equivalent |
+|-------------------------|------------------|-------------------|
+| Open palm facing camera | Move Forward     | W                 |
+| Fist                    | Stop             | None (key == -1)  |
+| Thumb left              | Turn Left        | A                 |
+| Thumb right             | Turn Right       | D                 |
+| Palm down               | Move Backward    | S                 |
+
+---
+
+## 👨‍💻 Implementation Plan
+
+### 🧩 **Step 1: Create a Separate Gesture Detection Module (Python File)**
+
+```python
+# gesture_control.py
+import cv2
+import mediapipe as mp
+
+class GestureRecognizer:
+    def __init__(self):
+        self.hands = mp.solutions.hands.Hands(max_num_hands=1)
+        self.mp_draw = mp.solutions.drawing_utils
+        self.cap = cv2.VideoCapture(0)
+
+    def get_gesture(self):
+        success, img = self.cap.read()
+        if not success:
+            return "none"
+
+        img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        result = self.hands.process(img_rgb)
+
+        gesture = "none"
+
+        if result.multi_hand_landmarks:
+            for handLms in result.multi_hand_landmarks:
+                # You can calculate distances or angles between landmarks here
+                # For now, use hand openness as a basic example:
+                thumb_tip = handLms.landmark[4].x
+                index_tip = handLms.landmark[8].x
+
+                if abs(thumb_tip - index_tip) < 0.05:
+                    gesture = "fist"
+                else:
+                    gesture = "open"
+
+                # Example: Add custom logic for thumb left/right
+                # gesture = "left" or "right" etc.
+
+        return gesture
+```
+
+---
+
+### 🧩 **Step 2: Integrate Into Webots Controller**
+
+Replace your `keyboard.getKey()` logic with gesture detection:
+
+```python
+from controller import Robot
+from gesture_control import GestureRecognizer
+
+robot = Robot()
+timestep = int(robot.getBasicTimeStep())
+
+# Motors
+left_motor = robot.getMotor('left wheel motor')
+right_motor = robot.getMotor('right wheel motor')
+left_motor.setPosition(float('inf'))
+right_motor.setPosition(float('inf'))
+left_motor.setVelocity(0.0)
+right_motor.setVelocity(0.0)
+
+# Gesture recognizer
+gesture_recognizer = GestureRecognizer()
+max_speed = 10
+
+while robot.step(timestep) != -1:
+    left_speed = max_speed
+    right_speed = max_speed
+
+    gesture = gesture_recognizer.get_gesture()
+    
+    if gesture == "open":  # Forward
+        left_motor.setVelocity(-left_speed)
+        right_motor.setVelocity(-right_speed)
+
+    elif gesture == "fist":  # Stop
+        left_motor.setVelocity(0.0)
+        right_motor.setVelocity(0.0)
+
+    elif gesture == "left":
+        left_motor.setVelocity(0.0)
+        right_motor.setVelocity(-right_speed)
+
+    elif gesture == "right":
+        left_motor.setVelocity(-left_speed)
+        right_motor.setVelocity(0.0)
+
+    elif gesture == "down":
+        left_motor.setVelocity(left_speed)
+        right_motor.setVelocity(right_speed)
+
+    else:
+        left_motor.setVelocity(0.0)
+        right_motor.setVelocity(0.0)
+```
+
+---
+
+## 🧪 Testing Strategy
+- Test `gesture_control.py` standalone with a live webcam window to debug gesture accuracy.
+- Once confirmed, run the Webots controller to ensure the robot responds as expected.
+
+---
+
+## 📈 Stretch Goals
+- Add **gesture smoothing** (using frame buffer)
+- Add **more gestures** (e.g., peace sign, two hands)
+- Use **hand landmarks and angles** for precise classification
+
+---
+
+Would you like me to generate the `gesture_control.py` template and Webots controller file for download?
 ## 🧰 Tools and References
 
 ### 📚 Online Materials
