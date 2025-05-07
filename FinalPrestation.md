@@ -2,77 +2,142 @@
 
 ## 🧠 Project Overview
 
-This project enables a differential-drive robot in Webots to be controlled via **hand gestures detected by a webcam**, using **MediaPipe** on one machine and **Webots simulation** on another — connected over a **Wi-Fi network using sockets**.
+This project demonstrates a multi-device robotic control system using **hand gestures**. A webcam-powered gesture recognition system on **Laptop A (Mac)** sends real-time commands to a simulated robot in **Webots** running on **Laptop B (Windows)** using a **Wi-Fi socket connection**. 
 
-Gesture recognition is handled on a separate device (Laptop A), which sends commands like `fist`, `open`, `left`, and `right` to a Webots robot simulation running on another machine (Laptop B). The robot responds in real time to these commands.
+The system enables gesture-based movement:
+- ✊ Fist → Move forward
+- ✋ Open palm → Move backward
+- ↩️ Tilt hand left → Turn left
+- ↪️ Tilt hand right → Turn right
+
+A fallback manual control system using **WASD keys** is also built in for robustness.
 
 ---
 
-## 🚀 How to Run the Project
+## 🖥️ What is Webots?
 
-### 🔧 Requirements
+**Webots** is an open-source 3D robot simulator used to design, test, and visualize robotic systems in real time.
 
-- Webots installed on Laptop B
-- Python 3.8–3.10 on both machines
-- `mediapipe`, `opencv-python` installed on Laptop A
-- Both machines connected to the **same network** (Wi-Fi or hotspot)
+🔗 Website: [https://cyberbotics.com](https://cyberbotics.com)  
+📄 Documentation: [https://cyberbotics.com/doc/guide/index](https://cyberbotics.com/doc/guide/index)
 
-> ⚠️ **IMPORTANT:** To access the dual-laptop gesture control functionality, both devices **must be on the same internet connection**.  
-> It is highly recommended to use a **personal hotspot** if your Wi-Fi has firmware-based restrictions or peer-to-peer blockers.
+### 🧩 How to Install Webots (Laptop B)
 
-### 📁 File Structure
+1. Go to the [Webots Download Page](https://cyberbotics.com/#download).
+2. Download the **Windows version**.
+3. Run the installer and follow the prompts.
+4. After installation, launch Webots and open or create your robot world.
+5. Ensure you configure your robot to use the provided controller `webots_controller_socket`.
+
+---
+
+## 🔧 Project Requirements
+
+### 💻 Laptop A (Gesture Detection - Mac)
+
+- Python 3.8–3.10
+- pip-installed:
+  - `opencv-python`
+  - `mediapipe`
+
+To install Python:  
+Download from [https://www.python.org/downloads/](https://www.python.org/downloads/)
+
+To install required packages:
+```bash
+pip3 install opencv-python mediapipe
+```
+
+---
+
+### 💻 Laptop B (Webots Simulation - Windows)
+
+- Webots (installed as above)
+- Python 3.8–3.10
+- Webots Python controller bindings (comes with Webots)
+
+To verify the Python path in Webots:
+- Go to: `Tools > Preferences > Python command`
+- Set it to your Python 3.8–3.10 interpreter path
+
+---
+
+## 🌐 Network Setup (Critical for Dual-Laptop Functionality)
+
+> ⚠️ **IMPORTANT:** Both laptops **must be on the same network**.
+
+Recommended:
+- Use a **personal mobile hotspot** to connect both machines
+- Avoid networks with **firmware-based firewalls** or **client isolation**
+
+To find your IP on **Laptop B** (Windows):
+```bash
+ipconfig
+```
+Copy the `IPv4 Address` from the wireless section and paste it into the Mac script as `SERVER_IP`.
+
+---
+
+## 📁 Project Structure
 
 ```
 Robotics_Project2025/
 ├── controllers/
 │   └── webots_controller_socket/
 │       └── webots_controller_socket.py
-├── gesture_sender_client.py (run on Laptop A - Mac)
-├── ULTRA_DETAILED_README.md
+├── gesture_sender_client.py  (Run on Laptop A)
+├── README.md
 ```
 
-### 🖥 On Laptop B (Windows – Webots Host)
+---
 
-1. Open Webots and load the project world.
-2. Ensure your robot’s controller is set to:
+## 🚀 How to Run the Project
+
+### On Laptop B (Windows – Webots)
+
+1. Open Webots and load your world.
+2. Make sure your robot’s controller is set to:
    ```
    "webots_controller_socket"
    ```
-3. Run simulation (press ▶️).
-4. Confirm terminal output:
+3. Click ▶️ Play to start simulation.
+4. You should see in the terminal:
    ```
    🟢 Listening for gesture sender on port 5050...
    ```
 
-### 💻 On Laptop A (Mac – Gesture Detection)
+### On Laptop A (Mac – Gesture Sender)
 
-1. Open Terminal.
-2. Navigate to project folder.
-3. Update the IP address in `gesture_sender_client.py`:
-   ```python
-   SERVER_IP = "192.168.x.x"  # ← IP of Laptop B
+1. Open Terminal and navigate to the project folder:
+   ```bash
+   cd ~/Path/To/Project
    ```
-4. Run:
+2. Open `gesture_sender_client.py` and set the correct IP:
+   ```python
+   SERVER_IP = "192.168.x.x"  # Replace with IP of Laptop B
+   ```
+3. Run:
    ```bash
    python3 gesture_sender_client.py
    ```
+4. The camera window will open, and gestures will begin sending to Laptop B.
 
 ---
 
 ## 🎮 Gesture Controls
 
-| Gesture | Action            |
-|---------|-------------------|
-| ✊ Fist  | Move Forward      |
-| ✋ Open  | Move Backward     |
-| ↩️ Tilt Left | Turn Left         |
-| ↪️ Tilt Right | Turn Right        |
+| Gesture | Action        |
+|---------|---------------|
+| ✊ Fist  | Move Forward  |
+| ✋ Open  | Move Backward |
+| ↩️ Tilt Left | Turn Left    |
+| ↪️ Tilt Right | Turn Right   |
 
 ---
 
 ## ⌨️ Failsafe Controls via WASD Keyboard Input
 
-In addition to gesture recognition, the system includes a secondary **WASD keyboard control interface** as a fallback mechanism. This ensures that users can still operate the robot in case the gesture detection fails or becomes unresponsive due to lighting, occlusion, or webcam issues.
+This system includes a built-in **WASD keyboard fallback** to control the robot in case the gesture input fails (e.g., poor lighting, camera issues):
 
 | Key | Action         |
 |-----|----------------|
@@ -80,37 +145,6 @@ In addition to gesture recognition, the system includes a secondary **WASD keybo
 | A   | Turn Left      |
 | S   | Move Backward  |
 | D   | Turn Right     |
-
-This dual-control strategy provides both **hands-free control** and **manual override**, improving the robustness and reliability of the system — particularly valuable during demos, testing, or industrial deployments where environmental factors may vary.
-
----
-
-## 🧪 Example Outputs
-
-- **Console on Laptop B:**
-  ```
-  📄 Gesture received: fist
-  📄 Gesture received: left
-  ```
-
-- **Webots Output:**
-  Robot drives forward, turns, or stops in sync with gestures.
-
-- **Camera Window on Mac:**
-  - Live feed with detected gesture printed on screen.
-
----
-
-## 🧠 Use Case in Industrial Robotics Integration
-
-This gesture control system demonstrates a practical foundation for **industrial human-robot interaction**, particularly in:
-
-- **Hazardous environments**: Gesture control enables operation of robotic systems in areas with toxic chemicals, heat, or radiation — where direct human control is dangerous.
-- **Assembly lines**: Technicians can issue commands quickly without physical interfaces, increasing workflow efficiency.
-- **Warehouse automation**: Supervisors can redirect or guide autonomous mobile robots using gestures, even with both hands occupied.
-- **Remote operation**: In field or off-site facilities, gesture-controlled systems allow more intuitive long-distance control over maintenance or inspection robots.
-
-This approach supports safer, more intuitive, and contactless robotic control — aligning with trends in **Industry 4.0 and smart manufacturing.**
 
 ---
 
@@ -124,60 +158,28 @@ This approach supports safer, more intuitive, and contactless robotic control �
 
 ## 🛠️ Future Improvements
 
-- Add additional gestures (e.g., stop, turbo, spin)
-- Implement voice control as a fallback
-- Build a GUI toggle for switching between WASD and gesture mode
-- Add ArUco markers for camera-based position feedback
-- Package with Docker or installer for plug-and-play deployment
+- Add gestures for `stop`, `turbo`, or `spin`.
+- Integrate voice command fallback.
+- GUI switch to toggle gesture/manual mode.
+- Deploy on edge device (e.g., Raspberry Pi).
+- Incorporate camera tracking via ArUco markers.
 
 ---
 
-## 🧰 Step-by-Step Beginner Setup Instructions
+## 🧠 Use Case in Industrial Robotics Integration
 
-This section walks through exactly how to prepare and run the system — perfect for someone unfamiliar with robotics or Webots.
+This dual-device gesture control system is a **practical prototype for industrial robotics**. Potential applications include:
 
-### 🔌 Part 1: Setup on Laptop B (Robot Host – Webots, Windows)
+- **Remote Hazardous Control**: Operators can control robots in chemical plants, nuclear facilities, or firefighting scenarios with gestures — avoiding danger.
+- **Smart Factories**: Supervisors can redirect robots mid-task using hand signals, reducing dependence on physical terminals.
+- **Warehouse Automation**: Workers can reroute AGVs while holding materials.
+- **Hands-Free Robotics**: Useful in sterile environments (labs, cleanrooms) where touch interfaces are impractical.
 
-#### Step 1: Install Webots
-- Download from [https://cyberbotics.com](https://cyberbotics.com)
-- Install and run once to complete setup
-
-#### Step 2: Load Project
-- Place project files in a local folder
-- Launch your `.wbt` file in Webots
-- Set robot’s controller to: `webots_controller_socket`
-
-#### Step 3: Run Simulation
-- Hit ▶️ in Webots
-- Confirm socket listening message in console
-
-### 📷 Part 2: Setup on Laptop A (Gesture Detection – Mac)
-
-#### Step 1: Install Python 3.8–3.10
-```bash
-python3 --version
-```
-
-#### Step 2: Install Required Libraries
-```bash
-pip3 install mediapipe opencv-python
-```
-
-#### Step 3: Connect to Robot
-Edit the IP of Laptop B in `gesture_sender_client.py`, then run:
-```bash
-python3 gesture_sender_client.py
-```
+By enhancing this system with camera tracking, secure communication protocols, and physical robot integration, it forms a solid foundation for intuitive, modern **human-robot interaction** systems in Industry 4.0.
 
 ---
 
-## ✅ Testing Checklist
+## 👥 Authors
 
-| Test | Expected Result |
-|------|------------------|
-| Webcam opens | Shows “Gesture: ___” |
-| Mac console | Shows “📡 Connected…” |
-| Windows console | Shows “📄 Gesture received…” |
-| Robot | Moves with gestures or WASD |
-
----
+- Chigozie Eke (Lead Developer, Gesture Control & Robotics Integration)
+- [Team Member Name] – [Role, if applicable]
