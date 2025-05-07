@@ -179,7 +179,49 @@ By enhancing this system with camera tracking, secure communication protocols, a
 
 ---
 
+## 🧾 Code File Explanations
+
+### 📁 `gesture_sender_client.py` (Run on Laptop A - Mac)
+
+This Python script uses a webcam to detect hand gestures using **MediaPipe**, classifies them, and sends the result over a **socket connection** to the Webots controller on another laptop.
+
+**Key Steps:**
+- `cv2.VideoCapture(0)` opens the webcam.
+- `mediapipe.solutions.hands` is used to detect hand landmarks.
+- Each frame is processed to determine hand gesture:
+  - If the **thumb and index finger are close**, it's a `"fist"` (move forward).
+  - If the hand is **tilted left**, it's `"left"`.
+  - If tilted right, `"right"`.
+  - Else it's considered `"open"` (move backward).
+- The classified gesture is **sent over a TCP socket** to Laptop B (Webots).
+- OpenCV shows a window with live video and current gesture label.
+- Quitting the program (`q` key) will close the connection and camera.
+
+---
+
+### 📁 `webots_controller.py` (Run on Laptop B - Windows)
+
+This script runs as a **Webots controller**, receiving gestures from Laptop A and commanding the simulated robot accordingly.
+
+**Key Sections:**
+- A **socket server** listens on port `8080` for gesture data sent from `gesture_sender_client.py`.
+- A separate **thread** handles incoming socket data so it doesn't block the robot's control loop.
+- The robot uses Webots API calls:
+  - `robot.getMotor(...)` grabs the left and right motors.
+  - `motor.setVelocity(...)` sets the wheel speeds based on the gesture.
+
+**Gesture-to-Action Mapping:**
+- `"fist"` → Move forward (`+speed` on both wheels)
+- `"open"` → Move backward (`-speed` on both wheels)
+- `"left"` → Rotate left (left wheel backward, right wheel forward)
+- `"right"` → Rotate right (left wheel forward, right wheel backward)
+- `"none"` or unrecognized → Stop (set velocity to `0.0`)
+
+This controller logic ensures real-time, responsive robot motion based on socket-fed gestures.
+
+---
+
 ## 👥 Authors
 
 - Chigozie Eke (Lead Developer, Gesture Control & Robotics Integration)
-- Om Samel 
+- [Team Member Name] – [Role, if applicable]
