@@ -98,6 +98,20 @@ This gesture control system demonstrates a practical foundation for **industrial
 This approach supports safer, more intuitive, and contactless robotic control — aligning with trends in **Industry 4.0 and smart manufacturing.**
 
 ---
+## ⌨️ Failsafe Controls via WASD Keyboard Input
+
+In addition to gesture recognition, the system includes a secondary **WASD keyboard control interface** as a fallback mechanism. This ensures that users can still operate the robot in case the gesture detection fails or becomes unresponsive due to lighting, occlusion, or webcam issues.
+
+| Key | Action         |
+|-----|----------------|
+| W   | Move Forward   |
+| A   | Turn Left      |
+| S   | Move Backward  |
+| D   | Turn Right     |
+
+This dual-control strategy provides both **hands-free control** and **manual override**, improving the robustness and reliability of the system — particularly valuable during demos, testing, or industrial deployments where environmental factors may vary.
+
+---
 
 ## 📚 References
 
@@ -119,21 +133,9 @@ This approach supports safer, more intuitive, and contactless robotic control �
 
 ## 👥 Authors
 
-- Chigozie Eke (Lead Developer, Gesture Control & Robotics Integration)
-- [Team Member Name] – [Role, if applicable]
+- Chigozie Eke (Lead Developer, Robotics Simulation Integration)
+- Om Samel (Lead Gesture Control Integrator)
 
 
 ---
 
-## ⌨️ Failsafe Controls via WASD Keyboard Input
-
-In addition to gesture recognition, the system includes a secondary **WASD keyboard control interface** as a fallback mechanism. This ensures that users can still operate the robot in case the gesture detection fails or becomes unresponsive due to lighting, occlusion, or webcam issues.
-
-| Key | Action         |
-|-----|----------------|
-| W   | Move Forward   |
-| A   | Turn Left      |
-| S   | Move Backward  |
-| D   | Turn Right     |
-
-This dual-control strategy provides both **hands-free control** and **manual override**, improving the robustness and reliability of the system — particularly valuable during demos, testing, or industrial deployments where environmental factors may vary.
