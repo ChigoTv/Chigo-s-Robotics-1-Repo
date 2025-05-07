@@ -182,4 +182,4 @@ By enhancing this system with camera tracking, secure communication protocols, a
 ## 👥 Authors
 
 - Chigozie Eke (Lead Developer, Gesture Control & Robotics Integration)
-- [Team Member Name] – [Role, if applicable]
+- Om Samel 
