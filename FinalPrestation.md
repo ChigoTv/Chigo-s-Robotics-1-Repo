@@ -225,3 +225,57 @@ This controller logic ensures real-time, responsive robot motion based on socket
 
 - Chigozie Eke (Lead Developer, Gesture Control & Robotics Integration)
 - [Team Member Name] – [Role, if applicable]
+---
+
+## 📎 Key Code Snippets (For Reference)
+
+### ✋ From `gesture_sender_client.py`
+
+#### 🖼️ Capturing and Processing Webcam Input
+```python
+cap = cv2.VideoCapture(0)
+success, img = cap.read()
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+results = hands.process(img_rgb)
+```
+
+#### ✊ Fist Detection Logic
+```python
+if abs(thumb_tip_x - index_tip_x) < 0.05:
+    gesture = "fist"
+```
+
+#### 📤 Sending Gesture Over Socket
+```python
+s.sendall(gesture.encode('utf-8'))
+```
+
+---
+
+### 🤖 From `webots_controller.py`
+
+#### 🔌 Socket Server Setup
+```python
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket.bind(('0.0.0.0', 8080))
+server_socket.listen(1)
+```
+
+#### 🔁 Main Robot Loop Processing Gestures
+```python
+if gesture == "fist":
+    left_motor.setVelocity(speed)
+    right_motor.setVelocity(speed)
+elif gesture == "left":
+    left_motor.setVelocity(-speed)
+    right_motor.setVelocity(speed)
+```
+
+#### 🛑 Stop Command
+```python
+else:
+    left_motor.setVelocity(0.0)
+    right_motor.setVelocity(0.0)
+```
+
+These snippets highlight the core logic behind gesture recognition, network transmission, and robot actuation.
