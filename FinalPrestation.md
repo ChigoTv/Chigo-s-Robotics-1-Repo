@@ -224,7 +224,7 @@ This controller logic ensures real-time, responsive robot motion based on socket
 ## 👥 Authors
 
 - Chigozie Eke (Lead Developer, Gesture Control & Robotics Integration)
-- [Team Member Name] – [Role, if applicable]
+- Om Samel (Gesture Control Integration)
 ---
 
 ## 📎 Key Code Snippets (For Reference)
