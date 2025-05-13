@@ -32,7 +32,8 @@ A fallback manual control system using **WASD keys** is also built in for robust
 
 Below is a screenshot of the Webots environment showing the simulated robot, socket-based gesture controller script, and live console feedback:
 
-![Webots Controller Preview](webots_controller_preview.png)
+![Screenshot 2025-05-13 004018](https://github.com/user-attachments/assets/06a62b4f-8e5e-4886-be3c-6e0db2b9c4af)
+
 
 ---
 
