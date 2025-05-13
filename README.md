@@ -173,6 +173,9 @@ You can also run this project **entirely on one Windows machine** for testing an
   ```bash
   python gesture_sender2.py
   ```
+* The code should turn on your camera, and just like running it with 2 laptops, you should be able to control the movement with the same gesture controls. Below are images of how the script should run.
+  ![Screenshot 2025-05-13 132243](https://github.com/user-attachments/assets/d99f2d1b-30ba-4c50-a88c-63c242f26576)
+  ![Screenshot 2025-05-13 132322](https://github.com/user-attachments/assets/2b5da35d-54c5-4514-aefe-cb6842d42749)
 
 ### 💡 Notes:
 
