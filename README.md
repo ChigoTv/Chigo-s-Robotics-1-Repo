@@ -30,6 +30,10 @@ A fallback manual control system using **WASD keys** is also built in for robust
 4. After installation, launch Webots and open or create your robot world.
 5. Ensure you configure your robot to use the provided controller `webots_controller_socket`.
 
+Below is a screenshot of the Webots environment showing the simulated robot, socket-based gesture controller script, and live console feedback:
+
+![Webots Controller Preview](webots_controller_preview.png)
+
 ---
 
 ## 🔧 Project Requirements
