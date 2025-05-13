@@ -10,7 +10,7 @@ The system enables gesture-based movement:
 - ↩️ Tilt hand left → Turn left  
 - ↪️ Tilt hand right → Turn right  
 
-A fallback manual control system using **WASD keys** is also built in for robustness.
+A fallback manual control system using **WASD keys** is also built in for robustness in the model created for running persons running the programs with one windows computer.
 
 ...
 
