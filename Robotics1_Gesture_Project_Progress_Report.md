@@ -47,14 +47,14 @@ Initially, the project was intended to interface with an **Arduino-controlled ro
 | Set up development environment (OpenCV, Mediapipe)            | Both                 | March 3      | ✅ Completed      |
 | Explore hardware options (Pivoted to simulation)              | Both                 | March 7      | ❌ Cancelled (Pivoted) |
 | Study/Explore OpenCV and Webots                               | Chigozie             | March 7      | ✅ Completed      |
-| Implement real-time hand tracking                             | Om                   | March 12     | 🟡 In Progress    |
-| Test and refine gesture recognition accurac                   | Om                   | March 19     | 🟡 In Progress    |
-| Map gestures to robotic commands in simulation                | Chigozie             | March 26     | 🟡 In Progress    |
+| Implement real-time hand tracking                             | Om                   | March 12     | ✅ Completed     |
+| Test and refine gesture recognition accurac                   | Om                   | March 19     | ✅ Completed    |
+| Map gestures to robotic commands in simulation                | Chigozie             | March 26     | ✅ Completed      |
 | Create progress report                                         | Both                 | April 3      | ✅ **This File**  |
-| Develop a gesture classification model                   | Both                 | April 10     | ⏳ Not Started    |
-| Prepare demo with robotic control application (simulated)     | Both                 | April 24     | ⏳ Not Started    |
-| Create final presentation                                     | Both                 | May 6        | ⏳ Not Started    |
-| Provide system documentation (README.md)                      | Both                 | May 13       | ⏳ Not Started    |
+| Develop a gesture classification model                   | Both                 | April 10     | ✅ Completed      |
+| Prepare demo with robotic control application (simulated)     | Both                 | April 24     | ✅ Completed     |
+| Create final presentation                                     | Both                 | May 6        | ✅ Completed      |
+| Provide system documentation (README.md)                      | Both                 | May 13       | ✅ Completed    |
 
 ---
 
