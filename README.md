@@ -315,7 +315,7 @@ By enhancing this system with camera tracking, secure communication protocols, a
 
 ### 📁 `gesture_sender_client.py` (Mac – Dual Device)
 
-Detects gestures via webcam, uses **MediaPipe**, sends gesture via **TCP** to Windows Webots machine.
+Detects gestures via webcam, uses **MediaPipe**, sends gesture via **TCP** to Windows Webots machine. 
 
 ### 📁 `webots_controller.py` (Windows – Dual Device)
 
