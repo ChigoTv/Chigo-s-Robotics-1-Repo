@@ -205,108 +205,114 @@ This system includes a built-in **WASD keyboard fallback** to control the robot 
 | D   | Turn Right    |
 
 ---
+
 ## 🖥️ 🧍‍♂️ Self-Running Setup (Single Windows Computer)
-You can run the full gesture-controlled robot simulation using just one Windows computer. This is useful for local testing, demos, or if a second device isn't available.
 
-📦 Files Required
-Ensure the following files are in your project directory (e.g., C:/Users/YourName/Documents/Robotics_Project2025/):
+You can run the full gesture-controlled robot simulation using just **one Windows computer**. This is useful for local testing, demos, or if a second device isn't available.
 
-gesture_sender2.py → Gesture detection script
+### 📦 Files Required
 
-webots_controller2.py → Webots controller script
+Ensure the following files are in your project directory (e.g., `C:/Users/YourName/Documents/Robotics_Project2025/`):
 
-gesture.txt → A plain text file that will be automatically created to store gesture states
+- `gesture_sender2.py` → Gesture detection script  
+- `webots_controller2.py` → Webots controller script  
+- `gesture.txt` → A plain text file that will be automatically created to store gesture states
 
-🧠 How It Works
-gesture_sender2.py uses your webcam and MediaPipe to detect hand gestures.
+### 🧠 How It Works
 
-The detected gesture is written to gesture.txt.
+- `gesture_sender2.py` uses your webcam and **MediaPipe** to detect hand gestures.
+- The detected gesture is written to `gesture.txt`.
+- `webots_controller2.py`, running in Webots, reads from `gesture.txt` and moves the robot accordingly.
+- If you press `W`, `A`, `S`, or `D`, manual keyboard control takes over.
 
-webots_controller2.py, running in Webots, reads from gesture.txt and moves the robot accordingly.
+---
 
-If you press W, A, S, or D, manual keyboard control takes over.
+### 🔧 Setup Instructions
 
-🔧 Setup Instructions
-1. Set Controller in Webots
-Open Webots.
+#### 1. **Set Controller in Webots**
 
-Select your robot.
+- Open Webots.
+- Select your robot.
+- In the **controller field**, set the controller to:
+  ```
+  webots_controller2
+  ```
+- Make sure this points to the file: `webots_controller2.py`.
 
-In the controller field, set the controller to:
+#### 2. **Install Python Requirements**
 
-nginx
-Copy
-Edit
-webots_controller2
-Make sure this points to the file: webots_controller2.py.
-
-2. Install Python Requirements
 Ensure you have Python 3.8–3.10 installed.
 
 Install the required Python packages in Command Prompt:
-
-bash
-Copy
-Edit
+```bash
 pip install opencv-python mediapipe
-▶️ Running the Project
-Step 1: Start Webots
-Open your project world in Webots.
-
-Press the Play button (▶️) to start the simulation.
-
-The robot controller (webots_controller2.py) will begin reading gestures.
-
-You should see messages like:
-
-swift
-Copy
-Edit
-🚀 Webots controller running
-📂 Controller looking for gesture.txt at: C:/Users/Chigo/Documents/Robotics_Project2025/gesture.txt
-Step 2: Start Gesture Detection
-Open a new Command Prompt window and run:
-
-bash
-Copy
-Edit
-cd C:\Users\Chigo\Documents\Robotics_Project2025
-python gesture_sender2.py
-A webcam window will appear with gesture feedback text like:
-
-makefile
-Copy
-Edit
-Gesture: fist
-Press q in the webcam window to quit.
-
-🤖 Gesture-to-Action Mapping
-Gesture	Action
-✊ Fist	Move Forward
-✋ Open	Move Backward
-none	Stop
-
-⌨️ Manual WASD Controls (Keyboard Override)
-The robot also supports manual override using your keyboard:
-
-Key	Action
-W	Move Forward
-S	Move Backward
-A	Turn Left
-D	Turn Right
-
-If you press a key, it takes control over gesture input.
-
-🛠️ Troubleshooting
-No gesture detected? Make sure the room is well-lit and your hand is visible to the webcam.
-
-No robot motion? Verify that gesture.txt is being updated. Try printing the file contents.
-
-Controller not working in Webots? Double-check that the controller name matches "webots_controller2" exactly in the Webots robot settings.
-
-Keyboard not responsive? Ensure the Webots simulation window is active and focused.
+```
 
 ---
+
+### ▶️ Running the Project
+
+#### Step 1: Start Webots
+
+- Open your project world in Webots.
+- Press the **Play** button (▶️) to start the simulation.
+- The robot controller (`webots_controller2.py`) will begin reading gestures.
+
+You should see messages like:
+```
+🚀 Webots controller running
+📂 Controller looking for gesture.txt at: C:/Users/Chigo/Documents/Robotics_Project2025/gesture.txt
+```
+
+#### Step 2: Start Gesture Detection
+
+Open a new Command Prompt window and run:
+```bash
+cd C:\Users\Chigo\Documents\Robotics_Project2025
+python gesture_sender2.py
+```
+
+A webcam window will appear with gesture feedback text like:
+```
+Gesture: fist
+```
+
+Press `q` in the webcam window to quit.
+
+---
+
+### 🤖 Gesture-to-Action Mapping
+
+| Gesture | Action         |
+|---------|----------------|
+| ✊ Fist  | Move Forward   |
+| ✋ Open  | Move Backward  |
+| none    | Stop           |
+
+---
+
+### ⌨️ Manual WASD Controls (Keyboard Override)
+
+The robot also supports manual override using your keyboard:
+
+| Key | Action         |
+|-----|----------------|
+| W   | Move Forward   |
+| S   | Move Backward  |
+| A   | Turn Left      |
+| D   | Turn Right     |
+
+> If you press a key, it takes control over gesture input.
+
+---
+
+### 🛠️ Troubleshooting
+
+- **No gesture detected?** Make sure the room is well-lit and your hand is visible to the webcam.
+- **No robot motion?** Verify that `gesture.txt` is being updated. Try printing the file contents.
+- **Controller not working in Webots?** Double-check that the controller name matches `"webots_controller2"` exactly in the Webots robot settings.
+- **Keyboard not responsive?** Ensure the Webots simulation window is active and focused.
+
 
 ## 🛠️ Future Improvements
 
@@ -354,7 +360,7 @@ Reads gestures from `gesture.txt` and moves motors. Supports WASD manual control
 ## 👥 Authors
 
 * **Chigozie Eke** – Lead Developer, Gesture Control & Robotics Integration
-* **Om Samel** – Gesture Control Integration
+* **Om Samel** – Gesture Control (Laptop A)
 
 ---
 ## 📚 References
