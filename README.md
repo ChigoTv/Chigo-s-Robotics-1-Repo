@@ -152,44 +152,6 @@ You can find all the code files used in this project — including both dual-dev
 
 ---
 
-## 🖥️ 🧍‍♂️ Self-Running Setup (Single Laptop on Windows)
-
-You can also run this project **entirely on one Windows machine** for testing and development.
-
-### 🔧 Setup:
-
-1. Set your Webots robot controller to:
-
-   ```
-   "webots_controller2"
-   ```
-2. Ensure the project folder has `gesture_sender2.py` and `gesture.txt`.
-
-### ▶️ Run the Following:
-
-* In Webots, start the simulation (this runs `webots_controller2.py`).
-* In another terminal window:
-
-  ```bash
-  python gesture_sender2.py
-  ```
-* The code should turn on your camera, and just like running it with 2 laptops, you should be able to control the movement with the same gesture controls. Below are images of how the script should run.
-  ![Screenshot 2025-05-13 132243](https://github.com/user-attachments/assets/d99f2d1b-30ba-4c50-a88c-63c242f26576)
-  ![Screenshot 2025-05-13 132322](https://github.com/user-attachments/assets/2b5da35d-54c5-4514-aefe-cb6842d42749)
-
-### 💡 Notes:
-
-* This version uses a shared file `gesture.txt` to pass gesture data.
-* WASD fallback controls are **also supported** using your keyboard.
-* Key Mappings:
-
-  * `W` → Move forward
-  * `S` → Move backward
-  * `A` → Turn left
-  * `D` → Turn right
-
----
-
 ## 🎮 Gesture Controls
 
 | Gesture       | Action        |
@@ -286,6 +248,10 @@ Gesture: fist
 ```
 
 Press `q` in the webcam window to quit.
+
+* The code should turn on your camera, and just like running it with 2 laptops, you should be able to control the movement with the same gesture controls. Below are images of how the script should run.
+  ![Screenshot 2025-05-13 132243](https://github.com/user-attachments/assets/d99f2d1b-30ba-4c50-a88c-63c242f26576)
+  ![Screenshot 2025-05-13 132322](https://github.com/user-attachments/assets/2b5da35d-54c5-4514-aefe-cb6842d42749)
 
 ---
 
